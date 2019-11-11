@@ -1,0 +1,32 @@
+<div id="app" class="container-fluid m-4">
+  <form>
+    <input 
+      type="text" 
+      v-on:input="inputTask($event)"
+    >
+    <input 
+      type="submit" 
+      class="btn btn-primary" 
+      v-on:click="addTask()"
+    >
+  </form>
+
+  <div class="listTasks mt-4">
+    <div 
+      v-for="(task, index) in taskToAdd" 
+      class="card m-4"
+      style="width: 18rem;"
+    >
+      <p 
+        v-bind:class="[{ 'alert alert-warning': !task.completed }, { 'alert alert-success': task.completed }]">
+        {{ task.text }}
+      </p>
+      <button 
+        type="button"
+        v-on:click="handleComplete(task.completed, index)" 
+        v-bind:class="[{ 'btn btn-success': task.completed }, {'btn btn-warning' : !task.completed}]">
+        {{ task.completed ? "Completed" : "To-Do" }}
+      </button>
+    </div>
+  </div>
+</div>

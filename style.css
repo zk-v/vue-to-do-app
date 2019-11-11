@@ -1,0 +1,7 @@
+form, .listTasks {
+  display: flex;
+  justify-content: center;
+}
+.listTasks {
+  flex-wrap: wrap;
+}
